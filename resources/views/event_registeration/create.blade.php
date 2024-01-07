@@ -12,7 +12,7 @@
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
             <div class="container my-3">
-                <div class="row">
+                <div class="row gy-4">
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-body">

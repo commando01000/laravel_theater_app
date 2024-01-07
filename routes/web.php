@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\adminController;
 use App\Http\Controllers\eventController;
+use App\Http\Controllers\showsController;
 use App\Models\event_registeration;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +22,7 @@ Route::get('/', function () {
 });
 
 Route::resource("/event_registeration", eventController::class);
+
+// Route::resource("/admin", adminController::class);
+
+Route::resource("/admin", showsController::class);

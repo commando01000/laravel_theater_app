@@ -52,7 +52,7 @@
           </button>
         </div>
       </nav>
-      <section id="ticket-reservation" class="m-5 p-5">
+      <section id="admin-control" class="m-5 p-5">
         <div class="container w-75">
           @yield('content')
         </div>
