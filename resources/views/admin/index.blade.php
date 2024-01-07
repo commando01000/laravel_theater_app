@@ -25,10 +25,10 @@
                                     </div>
                                     <div class="show-settings">
                                         <a href="{{ url('/admin/' . $show->id) }}"
-                                            title="View Employee"><button class="btn btn-info btn-sm"><i
+                                            title="View Show"><button class="btn btn-info btn-sm"><i
                                                     class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                         <a href="{{ url('/admin/' . $show->id . '/edit') }}"
-                                            title="Edit Employee"><button class="btn btn-primary btn-sm"><i
+                                            title="Edit Show"><button class="btn btn-primary btn-sm"><i
                                                     class="fa fa-pencil-square" aria-hidden="true"></i>
                                                 Edit</button></a>
                                         <form method="POST" action="{{ url('/admin' . '/' . $show->id) }}">
