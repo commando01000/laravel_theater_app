@@ -12,7 +12,7 @@
 <body>
   <nav class="navbar shadow navbar-expand-lg navbar-light bg-light p-4">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">
+      <a class="navbar-brand" href="#">
         <img src="{{asset('assets/theatrical-masks-icon_602006-1305.avif') }}" alt="Supra's Theater Logo" class="navbar-brand-img" style="width: 50px;">
         <span class="fw-bold">Supra's Theater</span>
       </a>

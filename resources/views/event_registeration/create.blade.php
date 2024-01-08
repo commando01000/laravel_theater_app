@@ -15,16 +15,18 @@
                 <div class="row gy-4">
                     @foreach ($Shows as $show)
                         <div class="col-md-4">
-                            <div class="card">
+                            <div class="card text-center position-relative">
+                                <div class="layer">
+                                    <div class="show-description d-flex justify-content-center align-items-center w-100 h-100">
+                                        <p>{{ $show->Description }}</p>
+                                    </div>
+                                </div>
                                 <div class="card-body">
                                     <img src="{{ asset($show->Image) }}" class="w-100 h-100" alt="{{ $show->Name }}">
                                 </div>
-                                <div class="card-footer d-flex justify-content-between">
+                                <div class="card-footer">
                                     <div class="show-name">
                                         <p>{{ $show->Name }}</p>
-                                    </div>
-                                    <div class="show-description">
-                                        <p>{{ $show->Description }}</p>
                                     </div>
                                 </div>
                             </div>

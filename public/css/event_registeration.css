@@ -65,7 +65,23 @@ nav.navbar .navbar-nav .nav-link:hover::after {
     width: 100% !important;
 }
 
-.menu-icon {
-font-size: 25px;
-display: none;
+.show-description {
+    color: red;
+}
+
+.card .layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 72px;
+    opacity: 0;
+    transition: all 0.5s;
+    background: white;
+    transform: rotateY(180deg) scale(0.5, 0.5);
+}
+
+.card:hover .layer {
+    opacity: 0.9 !important;
+    transform: rotateY(0deg) scale(1.0, 1.0);
 }
