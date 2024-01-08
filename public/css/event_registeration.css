@@ -67,6 +67,7 @@ nav.navbar .navbar-nav .nav-link:hover::after {
 
 .show-description {
     color: red;
+    margin-top: 20px !important;
 }
 
 .card .layer {
@@ -84,4 +85,54 @@ nav.navbar .navbar-nav .nav-link:hover::after {
 .card:hover .layer {
     opacity: 0.9 !important;
     transform: rotateY(0deg) scale(1.0, 1.0);
+}
+
+.card:hover .options-layer {
+    left: 80%;
+}
+
+.card {
+    overflow: hidden;
+}
+
+.options-layer ul li {
+    list-style: none;
+    text-decoration: none;
+    text-align: center;
+    margin-right: 25px;
+    padding: 8px;
+    color: white;
+}
+
+.options-layer ul li a
+{
+    list-style: none;
+    text-decoration: none;
+    color: #279ef1;
+}
+
+.options-layer ul li a:hover
+{
+    list-style: none;
+    text-decoration: none;
+    color: crimson;
+}
+
+.options-layer ul {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 10px;
+    text-align: center;
+    background-color:  aliceblue;
+}
+
+.options-layer {
+    position: absolute;
+    top: 10%;
+    left: 110%;
+    right: 0;
+    width: 60px;
+    bottom: 55%;
+    opacity: 1;
+    transition: all 0.5s 0.3s;
 }

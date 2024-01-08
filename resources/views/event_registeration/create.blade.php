@@ -21,6 +21,30 @@
                                         <p>{{ $show->Description }}</p>
                                     </div>
                                 </div>
+                                <div class="options-layer">
+                                    <ul class="social-links d-flex flex-column justify-content-center align-items-center">
+                                        <li>
+                                          <a href="" target="_blank">
+                                            <i class="fa-solid fa-video"></i>
+                                          </a>
+                                        </li>
+                                        <li>
+                                          <a href="" target="_blank">
+                                            <i class="fa-solid fa-ticket"></i>
+                                          </a>
+                                        </li>
+                                        <li>
+                                          <a href="" target="_blank">
+                                            <i class="fa-regular fa-heart"></i>
+                                          </a>
+                                        </li>
+                                        <li>
+                                          <a href="" target="_blank">
+                                            <i class="fa-solid fa-share-from-square"></i>
+                                          </a>
+                                        </li>
+                                      </ul>
+                                </div>
                                 <div class="card-body">
                                     <img src="{{ asset($show->Image) }}" class="w-100 h-100" alt="{{ $show->Name }}">
                                 </div>
