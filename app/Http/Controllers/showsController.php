@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\event_registeration;
+use App\Http\Controllers\eventController;
 use App\Models\Shows;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -17,9 +18,13 @@ class showsController extends Controller
     public function index(): View
     {
         $Shows = Shows::all();
-        
-        return view ('admin.index')->with('Shows', $Shows);
-        // return view('admin', compact('shows')); // Pass the data to the view
+        $attendees = event_registeration::all();
+
+        // Pass both $events and $attendees to the view
+        return view('admin.index', [
+            'Shows' => $Shows,
+            'attendees' => $attendees
+        ]);
     }
 
     /**

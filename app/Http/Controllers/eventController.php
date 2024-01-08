@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\event_registeration;
+use App\Models\Shows;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 
@@ -12,8 +13,8 @@ class eventController extends Controller
 {
     public function index(): View
     {
-        $events = event_registeration::all();
-        return view ('event_registeration.index')->with('event_registeration', $events);
+        $event_registeration = event_registeration::all();
+        return view ('event_registeration.index')->with('event_registeration', $event_registeration);
     }
 
     /**
@@ -21,7 +22,8 @@ class eventController extends Controller
      */
     public function create(): View
     {
-        return view('event_registeration.create');
+        $Shows = Shows::all();
+        return view ('event_registeration.create')->with('Shows', $Shows);
     }
 
     /**

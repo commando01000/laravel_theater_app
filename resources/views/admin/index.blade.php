@@ -8,6 +8,9 @@
         <li class="nav-item" role="presentation">
         <button class="nav-link" id="registration-tab" data-bs-toggle="tab" data-bs-target="#registration-tab-pane" type="button" role="tab" aria-controls="registration-tab-pane" aria-selected="false">Add Show</button>
         </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="attendees-tab" data-bs-toggle="tab" data-bs-target="#attendees-tab-pane" type="button" role="tab" aria-controls="attendees-tab-pane" aria-selected="false">Attendees</button>
+        </li>
     </ul>
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
@@ -114,5 +117,37 @@
                 <div class="form-group text-center"><button type="submit" class="btn btn-primary">Add Show !</button></div>
             </form>
         </div>
-    </div>
+        <div class="tab-pane fade" id="attendees-tab-pane" role="tabpanel" aria-labelledby="attendees-tab" tabindex="0">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered my-3">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Mobile Number</th>
+                            <th scope="col">Theatre Event Date</th>
+                            <th scope="col">Movie Name</th>
+                            <th scope="col">Show Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($attendees as $attendee)
+                            <tr>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$attendee->Name}}</td>
+                                <td>{{$attendee->Mobile_Number}}</td>
+                                <td>{{$attendee->Theatre_Event_Date}}</td>
+                                <td>{{$attendee->Movie_Name}}</td>
+                                <td>{{$attendee->Showtime}}</td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="6" class="text-center">No attendees found</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
 @endsection

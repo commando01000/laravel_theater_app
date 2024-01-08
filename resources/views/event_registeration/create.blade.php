@@ -3,7 +3,7 @@
         {!! csrf_field() !!}
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Home</button>
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Review Shows</button>
         </li>
         <li class="nav-item" role="presentation">
         <button class="nav-link" id="registration-tab" data-bs-toggle="tab" data-bs-target="#registration-tab-pane" type="button" role="tab" aria-controls="registration-tab-pane" aria-selected="false">Event Registration</button>
@@ -13,47 +13,23 @@
         <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
             <div class="container my-3">
                 <div class="row gy-4">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="{{ asset('assets/joker-4557864_1280.jpg') }}" class="w-100 h-100 " alt="Joker">
-                            </div>
-                            <div class="card-footer">
-                                <p>Joker 2</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="{{ asset('assets/348916R1.webp') }}" class="w-100 h-100 " alt="Joker">
-                            </div>
-                            <div class="card-footer">
-                                <p>The Shift</p>
+                    @foreach ($Shows as $show)
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <img src="{{ asset($show->Image) }}" class="w-100 h-100" alt="{{ $show->Name }}">
+                                </div>
+                                <div class="card-footer d-flex justify-content-between">
+                                    <div class="show-name">
+                                        <p>{{ $show->Name }}</p>
+                                    </div>
+                                    <div class="show-description">
+                                        <p>{{ $show->Description }}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="{{ asset('assets/160714.webp') }}" class="w-100 h-100 " alt="Joker">
-                            </div>
-                            <div class="card-footer">
-                                <p>The Iron Claw</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="{{ asset('assets/man-1139066_1280.jpg') }}" class="w-100 h-100 " alt="Joker">
-                            </div>
-                            <div class="card-footer">
-                                <p>The Man</p>
-                            </div>
-                        </div>
-                    </div>
-                    
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -72,29 +48,84 @@
             <label for="email">Email:</label>
             <input type="email" class="form-control" id="email" name="Email" placeholder="Enter your email">
             </div>
+
             <div class="form-group">
-            <label for="event_day">Theatre Event Date:</label>
-            <input type="date" class="form-control" id="event_day" name="Theatre_Event_Date">
-            </div>
-            <div class="form-group">
-            <label for="movie">Movie:</label>
-            <select class="form-select" name="Movie_Name" id="movie">
-                <option value="">Select Movie</option>
-                <option value="Avengers">Avengers</option>
-                <option value="No Time To Die">No Time To Die</option>
-                <option value="Men in black 3">Men in black 3</option>
-                <option value="Transformers Age Of ultron">Transformers Age Of ultron</option>
+                <label for="movie">Movie:</label>
+                <select class="form-select" name="Movie_Name" id="movie" onchange="updateShowtimes()">
+                    <option value="">Select a movie !</option>
+                    @foreach ($Shows as $show)
+                        <option value="{{ $show->Name }}">{{ $show->Name }}</option>
+                    @endforeach
                 </select>
             </div>
+
             <div class="form-group">
-            <label for="showtime">Showtime:</label>
-            <input type="time" class="form-control" id="Showtime" name="Showtime">
+                <label for="eventDate">Theater Event Date:</label>
+                <select class="form-select" name="Theatre_Event_Date" id="eventDate">
+                    <option value="">Select a theatre event date !</option>
+                </select>
             </div>
+
+            
+            <div class="form-group">
+                <label for="showtime">Showtime:</label>
+                <select class="form-select" name="Showtime" id="showtime">
+                    <option value="">Select a movie first</option>
+                </select>
+            </div>
+            
+            <script>
+                function clearDropdown(dropdown) {
+                    var length = dropdown.options.length;
+                    for (var i = length - 1; i >= 0; i--) {
+                        dropdown.remove(i);
+                    }
+                 }
+                function updateShowtimes() {
+                    var movieDropdown = document.getElementById('movie');
+                    var selectedMovie = movieDropdown.value;
+                    var showtimeDropdown = document.getElementById('showtime');
+                    var eventDateDropdown = document.getElementById('eventDate');
+
+                    // Clear existing options
+                    clearDropdown(showtimeDropdown);
+                    clearDropdown(eventDateDropdown);
+
+                    var ShowsData = {!! json_encode($Shows) !!};
+            
+                    // Find the selected movie in the Shows array
+                    var foundShows = [];
+                    ShowsData.forEach(function (show) {
+                        if (show.Name === selectedMovie) {
+                            foundShows.push(show);
+                        }
+                    });
+                    // console.log(foundShows)
+                    // If shows are found, update the showtime dropdown
+                    if (foundShows.length > 0) {
+                        for(var i = 0; i < foundShows.length; i++)
+                        {
+                            var showtimes = foundShows[i].Showtime;
+
+                            var option = document.createElement('option');
+                            option.value = showtimes;
+                            option.text = showtimes;
+                            showtimeDropdown.add(option);
+                            
+                            var showdate = foundShows[i].Showdate
+
+                            var option2 = document.createElement('option');
+                            option2.value = showdate;
+                            option2.text = showdate;
+                            eventDateDropdown.add(option2);
+                        }
+                    }
+                }
+            </script>
             <br>
             <div class="form-group text-center"><button type="submit" class="btn btn-primary">Register Event !</button></div>
             
         </form>
         </div>
-        
     </div>
 @endsection

@@ -2,7 +2,7 @@
 @section('content')
 
     <div style="width: 400px; height: 100%" class="card">
-        <div class="card-header">Employee's View Page</div>
+        <div class="card-header">Show's View Page</div>
         <div class="card-body">
 
             <div class="card-body">

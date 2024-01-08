@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('Email');
             $table->Date('Theatre_Event_Date');
             $table->string('Movie_Name');
-            $table->DATETIME('Showtime');
+            $table->time('Showtime');
             $table->timestamps();
         });
     }
