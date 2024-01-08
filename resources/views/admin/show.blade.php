@@ -23,7 +23,6 @@
                 </div>
             </div>
             </hr>
-
         </div>
     </div>
 @endsection

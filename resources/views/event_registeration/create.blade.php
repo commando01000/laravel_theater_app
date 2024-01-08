@@ -1,7 +1,7 @@
 @extends('event_registeration.layout')
 @section('content')
         {!! csrf_field() !!}
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <ul class="nav nav-tabs m-5" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
         <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Review Shows</button>
         </li>
@@ -60,98 +60,97 @@
             </div>
         </div>
         <div class="tab-pane fade" id="registration-tab-pane" role="tabpanel" aria-labelledby="registration-tab" tabindex="0">
-        <form action="{{ url('event_registeration') }}" method="POST">
-            {!! csrf_field() !!}
-            <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" class="form-control" id="name" name="Name" placeholder="Enter your name">
-            </div>
-            <div class="form-group">
-            <label for="mobile">Mobile:</label>
-            <input type="tel" class="form-control" id="mobile" name="Mobile_Number" placeholder="Enter your mobile number">
-            </div>
-            <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" name="Email" placeholder="Enter your email">
-            </div>
+            <form action="{{ url('event_registeration') }}" method="POST">
+                {!! csrf_field() !!}
+                <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="Name" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                <label for="mobile">Mobile:</label>
+                <input type="tel" class="form-control" id="mobile" name="Mobile_Number" placeholder="Enter your mobile number">
+                </div>
+                <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="Email" placeholder="Enter your email">
+                </div>
 
-            <div class="form-group">
-                <label for="movie">Movie:</label>
-                <select class="form-select" name="Movie_Name" id="movie" onchange="updateShowtimes()">
-                    <option value="">Select a movie !</option>
-                    @foreach ($Shows as $show)
-                        <option value="{{ $show->Name }}">{{ $show->Name }}</option>
-                    @endforeach
-                </select>
-            </div>
+                <div class="form-group">
+                    <label for="movie">Movie:</label>
+                    <select class="form-select" name="Movie_Name" id="movie" onchange="updateShowtimes()">
+                        <option value="">Select a movie !</option>
+                        @foreach ($Shows as $show)
+                            <option value="{{ $show->Name }}">{{ $show->Name }}</option>
+                        @endforeach
+                    </select>
+                </div>
 
-            <div class="form-group">
-                <label for="eventDate">Theater Event Date:</label>
-                <select class="form-select" name="Theatre_Event_Date" id="eventDate">
-                    <option value="">Select a theater event date !</option>
-                </select>
-            </div>
+                <div class="form-group">
+                    <label for="eventDate">Theater Event Date:</label>
+                    <select class="form-select" name="Theatre_Event_Date" id="eventDate">
+                        <option value="">Select a theater event date !</option>
+                    </select>
+                </div>
 
-            
-            <div class="form-group">
-                <label for="showtime">Showtime:</label>
-                <select class="form-select" name="Showtime" id="showtime">
-                    <option value="">Select a movie first</option>
-                </select>
-            </div>
-            
-            <script>
-                function clearDropdown(dropdown) {
-                    var length = dropdown.options.length;
-                    for (var i = length - 1; i >= 0; i--) {
-                        dropdown.remove(i);
-                    }
-                 }
-                function updateShowtimes() {
-                    var movieDropdown = document.getElementById('movie');
-                    var selectedMovie = movieDropdown.value;
-                    var showtimeDropdown = document.getElementById('showtime');
-                    var eventDateDropdown = document.getElementById('eventDate');
-
-                    // Clear existing options
-                    clearDropdown(showtimeDropdown);
-                    clearDropdown(eventDateDropdown);
-
-                    var ShowsData = {!! json_encode($Shows) !!};
-            
-                    // Find the selected movie in the Shows array
-                    var foundShows = [];
-                    ShowsData.forEach(function (show) {
-                        if (show.Name === selectedMovie) {
-                            foundShows.push(show);
-                        }
-                    });
-                    // console.log(foundShows)
-                    // If shows are found, update the showtime dropdown
-                    if (foundShows.length > 0) {
-                        for(var i = 0; i < foundShows.length; i++)
-                        {
-                            var showtimes = foundShows[i].Showtime;
-
-                            var option = document.createElement('option');
-                            option.value = showtimes;
-                            option.text = showtimes;
-                            showtimeDropdown.add(option);
-                            
-                            var showdate = foundShows[i].Showdate
-
-                            var option2 = document.createElement('option');
-                            option2.value = showdate;
-                            option2.text = showdate;
-                            eventDateDropdown.add(option2);
+                
+                <div class="form-group">
+                    <label for="showtime">Showtime:</label>
+                    <select class="form-select" name="Showtime" id="showtime">
+                        <option value="">Select a movie first</option>
+                    </select>
+                </div>
+                
+                <script>
+                    function clearDropdown(dropdown) {
+                        var length = dropdown.options.length;
+                        for (var i = length - 1; i >= 0; i--) {
+                            dropdown.remove(i);
                         }
                     }
-                }
-            </script>
-            <br>
-            <div class="form-group text-center"><button type="submit" class="btn btn-primary">Register Event !</button></div>
-            
-        </form>
+                    function updateShowtimes() {
+                        var movieDropdown = document.getElementById('movie');
+                        var selectedMovie = movieDropdown.value;
+                        var showtimeDropdown = document.getElementById('showtime');
+                        var eventDateDropdown = document.getElementById('eventDate');
+
+                        // Clear existing options
+                        clearDropdown(showtimeDropdown);
+                        clearDropdown(eventDateDropdown);
+
+                        var ShowsData = {!! json_encode($Shows) !!};
+                
+                        // Find the selected movie in the Shows array
+                        var foundShows = [];
+                        ShowsData.forEach(function (show) {
+                            if (show.Name === selectedMovie) {
+                                foundShows.push(show);
+                            }
+                        });
+                        // console.log(foundShows)
+                        // If shows are found, update the showtime dropdown
+                        if (foundShows.length > 0) {
+                            for(var i = 0; i < foundShows.length; i++)
+                            {
+                                var showtimes = foundShows[i].Showtime;
+
+                                var option = document.createElement('option');
+                                option.value = showtimes;
+                                option.text = showtimes;
+                                showtimeDropdown.add(option);
+                                
+                                var showdate = foundShows[i].Showdate
+
+                                var option2 = document.createElement('option');
+                                option2.value = showdate;
+                                option2.text = showdate;
+                                eventDateDropdown.add(option2);
+                            }
+                        }
+                    }
+                </script>
+                <br>
+                <div class="form-group text-center"><button type="submit" class="btn btn-primary">Register Event !</button></div>
+            </form>
         </div>
     </div>
 @endsection
