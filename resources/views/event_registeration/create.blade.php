@@ -62,7 +62,7 @@
             <div class="form-group">
                 <label for="eventDate">Theater Event Date:</label>
                 <select class="form-select" name="Theatre_Event_Date" id="eventDate">
-                    <option value="">Select a theatre event date !</option>
+                    <option value="">Select a theater event date !</option>
                 </select>
             </div>
 
