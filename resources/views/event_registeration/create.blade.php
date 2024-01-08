@@ -9,7 +9,7 @@
         <button class="nav-link" id="registration-tab" data-bs-toggle="tab" data-bs-target="#registration-tab-pane" type="button" role="tab" aria-controls="registration-tab-pane" aria-selected="false">Event Registration</button>
         </li>
     </ul>
-    <div class="tab-content" id="myTabContent">
+    <div class="tab-content shadow p-3" id="myTabContent">
         <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
             <div class="container my-3">
                 <div class="row gy-4">
