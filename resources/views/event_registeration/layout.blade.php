@@ -43,7 +43,7 @@
     <header class="w-100 position-relative">
         @yield('header')
     </header>
-      <section id="ticket-reservation" class=" mt-5 p-5">
+      <section id="ticket-reservation" class=" mt-1 p-5">
         <div class="container w-75">
           @yield('content')
         </div>

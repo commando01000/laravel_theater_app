@@ -179,6 +179,71 @@ nav.navbar .navbar-nav .nav-link:hover::after {
     transition: all 0.5s 0.3s;
 }
 
+#testimonials {
+    background-color: #f7f7f7;
+  }
+  
+  .testimonials-title h3 {
+    text-align: center;
+    position: relative;
+    font-weight: 800;
+    font-family: "Montserrat", sans-serif;
+    font-size: 40px !important;
+    line-height: 33px;
+    z-index: 1;
+    color: rgb(52, 52, 52);
+  }
+  
+  .testimonials-title h3::after {
+    content: "";
+    height: 35px;
+    width: 290px;
+    transform: translateX(-280px);
+    position: absolute;
+    bottom: -5px;
+    background-image: url(./dots.png);
+    background-repeat: repeat;
+    z-index: -1;
+  }
+  
+  .carousel-indicators [data-bs-target] {
+    box-sizing: content-box;
+    flex: 0 1 auto;
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: #d6d6d6;
+    background-clip: padding-box;
+    border-radius: 50%;
+    border: 1px solid white;
+    opacity: 0.5;
+    transition: opacity 0.6s ease;
+    position: relative;
+    top: 40px;
+  }
+  
+  .carousel-indicators .active {
+    opacity: 1 !important;
+    background: #869791 !important;
+  }
+  
+  #testimonials .carousel-item img {
+    width: 300px;
+    height: 500px;
+  }
+  
+  .carousel-text p {
+    font-family: "Poppins", sans-serif;
+    font-size: 15px !important;
+    font-weight: 400;
+    line-height: 24px;
+    color: rgb(116, 129, 130) !important;
+  }
+
 footer {
     background-color: #1c1c1c;
     padding: 30px;
