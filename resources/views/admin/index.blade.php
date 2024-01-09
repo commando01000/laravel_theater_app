@@ -55,15 +55,15 @@
                 {!! csrf_field() !!}
                 <div class="form-group my-3">
                 <label for="name">Show Name:</label>
-                <input type="text" class="form-control" id="name" name="Name" placeholder="Enter show name">
+                <input type="text" class="form-control" id="name" @required(true) name="Name" placeholder="Enter show name">
                 </div>
                 <div class="form-group">
                     <label for="Description">Show Description:</label>
-                    <input type="text" class="form-control" id="description" name="Description" placeholder="Enter show name">
+                    <input type="text" class="form-control" id="description" @required(true) name="Description" placeholder="Enter show name">
                 </div>
                 <br>
                 <div class="form-group">
-                    <input type="file" class="form-control" id="Image" name="Image" placeholder="Enter show image">
+                    <input type="file" class="form-control" id="Image" @required(true) name="Image" placeholder="Enter show image">
                 </div>
                 <br>
                 Rating:
@@ -106,20 +106,20 @@
                   <br>
                   <div class="form-group my-2">
                     <label for="ShowDate">Show Date:</label>
-                    <input type="date" class="form-control" id="ShowDate" name="Showdate">
+                    <input type="date" class="form-control" @required(true) id="ShowDate" name="Showdate">
                 </div>
                 <br>
                 <div class="form-group">
                     <label for="Showtime">Show Time:</label>
-                    <input type="time" class="form-control" id="Showtime" name="Showtime">
+                    <input type="time" class="form-control" id="Showtime" @required(true) name="Showtime">
                 </div>
                 <br>
                 <div class="form-group text-center"><button type="submit" class="btn btn-primary">Add Show !</button></div>
             </form>
         </div>
-        <div class="tab-pane fade" id="attendees-tab-pane" role="tabpanel" aria-labelledby="attendees-tab" tabindex="0">
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered my-3">
+        <div class="tab-pane fade mt-5 p-5" id="attendees-tab-pane" role="tabpanel" aria-labelledby="attendees-tab" tabindex="0">
+            <div class="table-responsive my-3">
+                <table class="table table-striped table-bordered rounded-3 my-5">
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">#</th>
