@@ -22,19 +22,19 @@
                                 <div class="card-body">
                                     <img src="{{ asset($show->Image) }}" class="w-100 h-100" alt="{{ $show->Name }}">
                                 </div>
-                                <div class="card-footer d-flex justify-content-between">
-                                    <div class="show-name">
+                                <div class="card-footer">
+                                    <div class="show-name text-center">
                                         <p>{{ $show->Name }}</p>
                                     </div>
-                                    <div class="show-settings d-flex flex-row flex-wrap">
-                                        <a href="{{ url('/admin/' . $show->id) }}"
+                                    <div class="show-settings d-flex flex-row flex-nowrap justify-content-center">
+                                        <a href="{{ url('/admin/' . $show->id) }}" class="px-1"
                                             title="View Show"><button class="btn btn-info btn-sm"><i
                                                     class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                        <a href="{{ url('/admin/' . $show->id . '/edit') }}"
+                                        <a href="{{ url('/admin/' . $show->id . '/edit') }}" class="px-1"
                                             title="Edit Show"><button class="btn btn-primary btn-sm"><i
                                                     class="fa fa-pencil-square" aria-hidden="true"></i>
                                                 Edit</button></a>
-                                        <form method="POST" action="{{ url('/admin' . '/' . $show->id) }}">
+                                        <form method="POST" class="px-1" action="{{ url('/admin' . '/' . $show->id) }}">
                                             {{ method_field('DELETE') }}
                                             {{ csrf_field() }}
                                             <button type="submit" class="btn btn-danger btn-sm">

@@ -98,6 +98,11 @@ nav.navbar .navbar-nav .nav-link:hover::after {
     margin-top: 120px !important;
 }
 
+.show-description-view {
+  color: red;
+    margin-top: 10px !important;
+}
+
 .card .layer {
     position: absolute;
     top: 0;
