@@ -94,7 +94,7 @@ nav.navbar .navbar-nav .nav-link:hover::after {
 
 .show-description p{
     color: red;
-    margin-top: 10px !important;
+    margin-top: 120px !important;
 }
 
 .card .layer {
@@ -116,7 +116,7 @@ nav.navbar .navbar-nav .nav-link:hover::after {
 }
 
 .card:hover .options-layer {
-    left: 80%;
+    left: 78%;
 }
 
 .card {
@@ -170,7 +170,7 @@ nav.navbar .navbar-nav .nav-link:hover::after {
 
 .options-layer {
     position: absolute;
-    top: 10%;
+    top: 8%;
     left: 110%;
     right: 0;
     width: 60px;
