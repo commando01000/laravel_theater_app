@@ -64,20 +64,20 @@
                 {!! csrf_field() !!}
                 <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name" name="Name" placeholder="Enter your name">
+                <input type="text" class="form-control" id="name" name="Name" @required(true) placeholder="Enter your name">
                 </div>
                 <div class="form-group">
                 <label for="mobile">Mobile:</label>
-                <input type="tel" class="form-control" id="mobile" name="Mobile_Number" placeholder="Enter your mobile number">
+                <input type="tel" class="form-control" id="mobile" name="Mobile_Number" @required(true) placeholder="Enter your mobile number">
                 </div>
                 <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="Email" placeholder="Enter your email">
+                <input type="email" class="form-control" id="email" name="Email" @required(true) placeholder="Enter your email">
                 </div>
 
                 <div class="form-group">
                     <label for="movie">Movie:</label>
-                    <select class="form-select" name="Movie_Name" id="movie" onchange="updateShowtimes()">
+                    <select class="form-select" name="Movie_Name" @required(true) id="movie" onchange="updateShowtimes()">
                         <option value="">Select a movie !</option>
                         @foreach ($Shows as $show)
                             <option value="{{ $show->Name }}">{{ $show->Name }}</option>
@@ -87,7 +87,7 @@
 
                 <div class="form-group">
                     <label for="eventDate">Theater Event Date:</label>
-                    <select class="form-select" name="Theatre_Event_Date" id="eventDate">
+                    <select class="form-select" name="Theatre_Event_Date" @required(true) id="eventDate">
                         <option value="">Select a theater event date !</option>
                     </select>
                 </div>
@@ -95,7 +95,7 @@
                 
                 <div class="form-group">
                     <label for="showtime">Showtime:</label>
-                    <select class="form-select" name="Showtime" id="showtime">
+                    <select class="form-select" name="Showtime" @required(true) id="showtime">
                         <option value="">Select a movie first</option>
                     </select>
                 </div>
