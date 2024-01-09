@@ -26,7 +26,7 @@
                                     <div class="show-name">
                                         <p>{{ $show->Name }}</p>
                                     </div>
-                                    <div class="show-settings">
+                                    <div class="show-settings d-flex flex-row flex-wrap">
                                         <a href="{{ url('/admin/' . $show->id) }}"
                                             title="View Show"><button class="btn btn-info btn-sm"><i
                                                     class="fa fa-eye" aria-hidden="true"></i> View</button></a>

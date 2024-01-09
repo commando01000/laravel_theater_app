@@ -2,17 +2,17 @@
 
 @section('header')
     <div class="header-image">
-        <img src="{{ asset('assets/272200-cinema-movies-theatre-and-theater-hd.jpg') }}" alt="theater">
+        {{-- <img src="{{ asset('assets/272200-cinema-movies-theatre-and-theater-hd.jpg') }}" alt="theater"> --}}
     </div>
 @endsection
 
 @section('content')
 <div class="reserveTicket">
-    <a href="{{ url('/event_registeration/create') }}" class="btn btn-dark  btn-sm p-3 fs-5 register-ticket position-absolute" title="Register Event !">
+    <a href="{{ url('/event_registeration/create') }}" class="btn btn-danger  btn-sm p-4 fs-5 register-ticket position-absolute" title="Register Event !">
         <i aria-hidden="true" class="fa-solid fa-ticket"></i> Reserve Your Ticket Now !
     </a>
 </div>
-<section id="testimonials" class="my-5 py-1">
+<section id="testimonials" class="my-5 py-1 px-5">
     <div class="container">
       <div class="testimonials-title">
         <h3 class="my-5">Top Rated Shows !</h3>

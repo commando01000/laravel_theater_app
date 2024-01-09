@@ -40,7 +40,7 @@
         </div>
       </div>
     </nav>
-    <header class="w-100 position-relative">
+    <header class="w-100 overflow-hidden position-relative">
         @yield('header')
     </header>
       <section id="ticket-reservation" class=" mt-1 p-5">
