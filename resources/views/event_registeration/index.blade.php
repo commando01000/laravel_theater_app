@@ -15,7 +15,7 @@
 <section id="testimonials" class="my-5 py-1">
     <div class="container">
       <div class="testimonials-title">
-        <h3 class="my-5">Testiomnials.</h3>
+        <h3 class="my-5">Top Rated Shows !</h3>
         <div
           id="carouselExampleAutoplaying"
           class="carousel slide"
